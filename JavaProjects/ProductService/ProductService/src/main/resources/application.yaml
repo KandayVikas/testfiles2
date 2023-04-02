@@ -1,0 +1,36 @@
+server:
+  port: 8083
+
+spring:
+  datasource:
+     url: jdbc:h2:mem:productdb
+     driverClassName: org.h2.Driver
+     username: sa
+     password: sa
+  jpa:
+  database-platform: org.hibernate.dialect.H2Dialect
+  hibernate:
+  ddl-auto: update
+  h2:
+    console.enabled : true
+  application:
+    name: PRODUCT-SERVICE
+#    this is the url of config server service to get configuration from github
+  config:
+      import: configserver:http://localhost:9296
+  zipkin:
+    base-url: http://localhost:9411/
+  slueth:
+    sampler:
+      probability: 1
+
+
+
+#will fetch this configuration from github
+#eureka:
+#  instance:
+#    prefer-ip-address: true
+#  client:
+#    fetch-registry: true
+#    enable-with-client: true
+#    server-url: ${EUREKA.SERVER.ADDRESS:http://localhost:8761/eureka}

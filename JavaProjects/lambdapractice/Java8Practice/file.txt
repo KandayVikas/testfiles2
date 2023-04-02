@@ -1,0 +1,3 @@
+Hi Hello Good Morning
+Some words here are duplicates like Hi
+This file is created to learn lambdas

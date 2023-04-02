@@ -1,0 +1,13 @@
+server:
+  port: 8761
+
+#this service acts as eureka service not eureka client
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+
+
+#service-regisrty is used to see whether other microservices are up or down
+#By using service-registry we are eliminating use of hostnames and port numbers, so we are using service name

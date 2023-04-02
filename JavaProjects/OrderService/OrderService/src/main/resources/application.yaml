@@ -1,0 +1,30 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:h2:mem:orderdb}
+    username: sa
+    password: sa
+    driverName: org.H2.Driver
+  jpa:
+  database-platform: org.hibernate.dialect.H2Dialect
+  hibernate:
+  ddl-auto: update
+  h2:
+    console.enabled: true
+  application:
+    name: ORDER-SERVICE
+    #  this is the url of config server service to get configuration from github
+  config:
+    import: configserver:http://localhost:9296
+
+
+#will fetch this configuration from github
+#eureka:
+#  instance:
+#    prefer-ip-address: true
+#  client:
+#    fetch-registry: true
+#    enable-with-client: true
+#    server-url: ${EUREKA.SERVER.ADDRESS:http://localhost:8761/eureka}
